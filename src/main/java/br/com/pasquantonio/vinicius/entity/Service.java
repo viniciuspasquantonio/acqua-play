@@ -21,7 +21,9 @@ public class Service {
 	
 	@ManyToOne
 	private ServiceType serviceType;
-
+	
+	private String name;
+	
 	public Person getPerson() {
 		return person;
 	}
@@ -45,5 +47,14 @@ public class Service {
 	public void setServiceType(ServiceType serviceType) {
 		this.serviceType = serviceType;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 }

@@ -1,5 +1,6 @@
 package br.com.pasquantonio.vinicius.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -14,6 +15,8 @@ public class Purchase {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	private BigDecimal value;
 	
 	@ManyToOne
 	private Person person;
@@ -35,5 +38,13 @@ public class Purchase {
 
 	public void setPerson(Person person) {
 		this.person = person;
+	}
+
+	public BigDecimal getValue() {
+		return value;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
 	}
 }

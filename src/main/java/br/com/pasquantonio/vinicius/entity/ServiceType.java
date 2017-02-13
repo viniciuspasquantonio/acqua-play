@@ -13,6 +13,8 @@ public class ServiceType {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	private String name;
+	
 	@ManyToOne
 	private Service service;
 
@@ -22,5 +24,13 @@ public class ServiceType {
 
 	public void setService(Service service) {
 		this.service = service;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

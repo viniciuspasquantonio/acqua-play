@@ -1,5 +1,7 @@
 package br.com.pasquantonio.vinicius.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +26,35 @@ public class Product {
 
 	@ManyToOne
 	private ProductType productType;
+	
+	private String name;
+	private String description;
+	private BigDecimal value;
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public BigDecimal getValue() {
+		return value;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
 
 	public Interest getInterest() {
 		return interest;

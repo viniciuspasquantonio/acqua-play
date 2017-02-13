@@ -15,6 +15,8 @@ public class ProductType {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	private String name;
+	
 	@OneToMany(mappedBy="productType")
 	private List<Product> product;
 
@@ -24,6 +26,14 @@ public class ProductType {
 
 	public void setProduct(List<Product> product) {
 		this.product = product;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
