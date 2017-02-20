@@ -21,16 +21,10 @@ public class Person {
 	private String cpf;
 	
 	@OneToMany(mappedBy="person")
-	private List<Sale> sales;
+	private List<Ad> ads;
 	
-	@OneToMany(mappedBy="person")
-	private List<Purchase> purchases;
-
 	@OneToMany(mappedBy="person")
 	private List<Interest> interests;
-	
-	@OneToMany(mappedBy="person")
-	private List<Service> services;
 
 	public String getFirstName() {
 		return firstName;
@@ -64,20 +58,12 @@ public class Person {
 		this.cpf = cpf;
 	}
 
-	public List<Sale> getSales() {
-		return sales;
+	public List<Ad> getAds() {
+		return ads;
 	}
 
-	public void setSales(List<Sale> sales) {
-		this.sales = sales;
-	}
-
-	public List<Purchase> getPurchases() {
-		return purchases;
-	}
-
-	public void setPurchases(List<Purchase> purchases) {
-		this.purchases = purchases;
+	public void setAds(List<Ad> ads) {
+		this.ads = ads;
 	}
 
 	public List<Interest> getInterests() {
@@ -87,14 +73,6 @@ public class Person {
 	public void setInterests(List<Interest> interests) {
 		this.interests = interests;
 	}
-
-	public List<Service> getServices() {
-		return services;
-	}
-
-	public void setServices(List<Service> services) {
-		this.services = services;
-	}
-
+	
 
 }

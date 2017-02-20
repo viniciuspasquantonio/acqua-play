@@ -14,7 +14,7 @@ public class Service {
 	private long id;
 	
 	@ManyToOne
-	private Person person;
+	private Ad ad;
 	
 	@ManyToOne
 	private Interest interest;
@@ -24,13 +24,6 @@ public class Service {
 	
 	private String name;
 	
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
 
 	public Interest getInterest() {
 		return interest;
@@ -54,6 +47,14 @@ public class Service {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Ad getAd() {
+		return ad;
+	}
+
+	public void setAd(Ad ad) {
+		this.ad = ad;
 	}
 
 
