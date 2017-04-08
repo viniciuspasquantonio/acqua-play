@@ -17,7 +17,7 @@ public class Ad {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private BigDecimal value;
+	private BigDecimal price;
 	private String title;
 	private String description;
 	
@@ -36,12 +36,13 @@ public class Ad {
 	@OneToMany(mappedBy="ad")
 	private List<Interest> interests;
 
-	public BigDecimal getValue() {
-		return value;
+
+	public BigDecimal getPrice() {
+		return price;
 	}
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
 	public String getTitle() {
