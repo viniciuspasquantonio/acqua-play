@@ -1,4 +1,4 @@
-package br.com.pasquantonio.vinicius.entity;
+package br.com.pasquantonio.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

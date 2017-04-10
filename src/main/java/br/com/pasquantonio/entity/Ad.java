@@ -1,4 +1,4 @@
-package br.com.pasquantonio.vinicius.entity;
+package br.com.pasquantonio.entity;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 public class Ad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Integer id;
 	
 	private BigDecimal price;
 	private String title;
@@ -100,6 +100,15 @@ public class Ad {
 	public void setInterests(List<Interest> interests) {
 		this.interests = interests;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 
 
 }

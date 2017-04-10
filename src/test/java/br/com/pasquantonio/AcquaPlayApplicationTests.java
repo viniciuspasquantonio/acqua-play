@@ -1,4 +1,4 @@
-package br.com.pasquantonio.vinicius;
+package br.com.pasquantonio;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

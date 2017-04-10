@@ -1,4 +1,4 @@
-package br.com.pasquantonio.vinicius.entity;
+package br.com.pasquantonio.entity;
 
 import java.math.BigDecimal;
 
