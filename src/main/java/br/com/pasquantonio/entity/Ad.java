@@ -26,16 +26,6 @@ public class Ad {
 	
 	@ManyToOne
 	private Person person;
-	
-	@OneToMany(mappedBy="ad")
-	private List<Product> products;
-	
-	@OneToMany(mappedBy="ad")
-	private List<Service> services;
-	
-	@OneToMany(mappedBy="ad")
-	private List<Interest> interests;
-
 
 	public BigDecimal getPrice() {
 		return price;
@@ -77,29 +67,6 @@ public class Ad {
 		this.person = person;
 	}
 
-	public List<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
-
-	public List<Service> getServices() {
-		return services;
-	}
-
-	public void setServices(List<Service> services) {
-		this.services = services;
-	}
-
-	public List<Interest> getInterests() {
-		return interests;
-	}
-
-	public void setInterests(List<Interest> interests) {
-		this.interests = interests;
-	}
 
 	public Integer getId() {
 		return id;

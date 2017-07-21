@@ -20,8 +20,12 @@ public class UserService  {
         return new BCryptPasswordEncoder();
     }
 
-    public void save(User user){
+    public User save(User user){
         user.setPassword(getPasswordEncoder().encode(user.getPassword()));
-        userRepository.save(user);
+        return userRepository.save(user);
+    }
+    
+    public User findOne(Long id){
+        return userRepository.findOne(id);
     }
 }
