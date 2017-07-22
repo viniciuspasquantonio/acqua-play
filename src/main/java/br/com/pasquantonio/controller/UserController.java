@@ -37,10 +37,10 @@ public class UserController {
 		return userService.save(user);
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET, consumes="application/json",produces="application/json")
+	@RequestMapping(value = "/findByUsername/{username}", method = RequestMethod.GET, consumes="application/json",produces="application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public User findById(@PathVariable("id") Long id) {
-		return userService.findOne(id);
+	public User findById(@PathVariable("username") String username) {
+		return userService.findByUsername(username);
 	}
 	
 	
