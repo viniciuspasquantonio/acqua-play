@@ -1,15 +1,15 @@
 package br.com.pasquantonio.entity;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Collection;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Ad {
@@ -20,6 +20,9 @@ public class Ad {
 	private BigDecimal price;
 	private String title;
 	private String description;
+	
+	@ElementCollection
+	private Collection<String> images;
 	
 	@Enumerated()
 	private AdEnum type;
@@ -74,6 +77,14 @@ public class Ad {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Collection<String> getImages() {
+		return images;
+	}
+
+	public void setImages(Collection<String> images) {
+		this.images = images;
 	}
 
 
