@@ -20,6 +20,7 @@ public class Ad {
 	private BigDecimal price;
 	private String title;
 	private String description;
+	private String seller;
 	
 	@ElementCollection
 	private Collection<String> images;
@@ -27,8 +28,6 @@ public class Ad {
 	@Enumerated()
 	private AdEnum type;
 	
-	@ManyToOne
-	private Person person;
 
 	public BigDecimal getPrice() {
 		return price;
@@ -62,14 +61,6 @@ public class Ad {
 		this.type = type;
 	}
 
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
 
 	public Integer getId() {
 		return id;
@@ -85,6 +76,14 @@ public class Ad {
 
 	public void setImages(Collection<String> images) {
 		this.images = images;
+	}
+
+	public String getSeller() {
+		return seller;
+	}
+
+	public void setSeller(String seller) {
+		this.seller = seller;
 	}
 
 
