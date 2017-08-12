@@ -36,6 +36,12 @@ public class UserController {
 	public User create(@RequestBody @Valid User user) {
 		return userService.save(user);
 	}
+
+	@RequestMapping(value = "/", method = RequestMethod.PUT, consumes="application/json")
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public User update(@RequestBody @Valid User user) {
+		return userService.update(user);
+	}
 	
 	@RequestMapping(value = "/findByUsername/{username}", method = RequestMethod.GET, consumes="application/json",produces="application/json")
 	@ResponseStatus(HttpStatus.OK)

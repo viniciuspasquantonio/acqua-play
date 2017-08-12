@@ -54,6 +54,12 @@ public class AdController {
 		adRepository.delete(id);
 	}
 	
+	@RequestMapping(value = "/findBySeller/{seller}", method = RequestMethod.GET, consumes="application/json",produces="application/json")
+	@ResponseStatus(HttpStatus.OK)
+	public Iterable<Ad> findBySeller(@PathVariable("seller") String seller) {
+		return adRepository.findBySeller(seller);
+	}
+	
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})
 	public void handleNotFound() {}

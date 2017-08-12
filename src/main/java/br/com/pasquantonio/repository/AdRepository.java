@@ -8,6 +8,6 @@ import br.com.pasquantonio.entity.Ad;
 
 @Repository
 public interface AdRepository extends CrudRepository<Ad, Integer> {
-
+	Iterable<Ad> findBySeller(String seller);
 
 } 

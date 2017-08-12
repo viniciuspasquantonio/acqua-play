@@ -25,6 +25,11 @@ public class UserService  {
         return userRepository.save(user);
     }
     
+    public User update(User user){
+    	User savedUser = userRepository.findByUsername(user.getUsername());
+        return userRepository.save(user);
+    }
+    
     public User findOne(Long id){
         return userRepository.findOne(id);
     }
@@ -32,4 +37,5 @@ public class UserService  {
 	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
+
 }
