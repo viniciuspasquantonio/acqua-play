@@ -4,7 +4,6 @@ import java.security.Principal;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.pasquantonio.entity.Chat;
+import br.com.pasquantonio.entity.Message;
 import br.com.pasquantonio.service.ChatService;
 
 @RestController
@@ -36,22 +36,28 @@ public class ChatController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes="application/json")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Chat create(@RequestBody @Valid Chat chat) {
-		return chatService.save(chat);
+	public Message create(@RequestBody @Valid Message chat) {
+		return chatService.saveMessage(chat);
 	}
 
 	
 	@RequestMapping(value = "/seller/", method = RequestMethod.GET, consumes="application/json",produces="application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Chat> findBySeller(@PathVariable("sellerId") Long sellerId) {
+	public List<Message> findBySeller(@PathVariable("sellerId") Long sellerId) {
 		return chatService.findBySeller(sellerId);
+	}
+	
+	@RequestMapping(value = "/user/", method = RequestMethod.GET, consumes="application/json",produces="application/json")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Chat> findByuser(@RequestParam("userId") Long userId) {
+		return chatService.listByUser(userId);
 	}
 	
 	
 	
 	@RequestMapping(value = "/findUserAdChat/", method = RequestMethod.GET, consumes="application/json",produces="application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Chat> findByAdIdAndUserId(@RequestParam("adId") Long adId,@RequestParam("userId") Long userId) {
+	public List<Message> findByAdIdAndUserId(@RequestParam("adId") Long adId,@RequestParam("userId") Long userId) {
 		return chatService.findByAdIdAndUserId(adId,userId);
 	}
 	

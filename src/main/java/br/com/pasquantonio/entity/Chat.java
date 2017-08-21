@@ -1,109 +1,54 @@
 package br.com.pasquantonio.entity;
 
-import java.time.Instant;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
 public class Chat {
 
-	@Id
-	@GeneratedValue
-	private String id;
+	private List<Message> messages;
+	private int chatKey;
+	private User user1;
+	private User user2;
+	private Ad ad;
+	private String adImage;
 	
-	private Long adId;
-	private Long userId;
-	private Long sellerId;
-	
-	private String message;
-	private Instant instant;
-	
-	private String username;
-	
-	Chat() {
-	
+	public Chat(Integer chatKey, List<Message> messages) {
+		this.chatKey = chatKey;
+		this.messages = messages;
 	}
-
-	public String getId() {
-		return id;
+	public List<Message> getMessages() {
+		return messages;
 	}
-
-	public void setId(String id) {
-		this.id = id;
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
 	}
-
-	public Long getAdId() {
-		return adId;
+	public int getChatKey() {
+		return chatKey;
 	}
-
-	public void setAdId(Long adId) {
-		this.adId = adId;
+	public void setChatKey(int chatKey) {
+		this.chatKey = chatKey;
 	}
-
-	public Long getUserId() {
-		return userId;
+	public User getUser1() {
+		return user1;
 	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUser1(User user1) {
+		this.user1 = user1;
 	}
-
-	public String getMessage() {
-		return message;
+	public User getUser2() {
+		return user2;
 	}
-
-	public void setMessage(String message) {
-		this.message = message;
+	public void setUser2(User user2) {
+		this.user2 = user2;
 	}
-
-	public Instant getInstant() {
-		return instant;
+	public Ad getAd() {
+		return ad;
 	}
-
-	public void setInstant(Instant instant) {
-		this.instant = instant;
+	public void setAd(Ad ad) {
+		this.ad = ad;
 	}
-	
-
-	public Long getSellerId() {
-		return sellerId;
+	public String getAdImage() {
+		return adImage;
 	}
-
-	public void setSellerId(Long sellerId) {
-		this.sellerId = sellerId;
+	public void setAdImage(String adImage) {
+		this.adImage = adImage;
 	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Chat [id=");
-		builder.append(id);
-		builder.append(", adId=");
-		builder.append(adId);
-		builder.append(", userId=");
-		builder.append(userId);
-		builder.append(", sellerId=");
-		builder.append(sellerId);
-		builder.append(", message=");
-		builder.append(message);
-		builder.append(", instant=");
-		builder.append(instant);
-		builder.append(", username=");
-		builder.append(username);
-		builder.append("]");
-		return builder.toString();
-	}
-	
-
-	
 }
