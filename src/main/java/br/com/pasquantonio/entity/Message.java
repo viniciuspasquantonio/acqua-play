@@ -10,14 +10,11 @@ import javax.persistence.Id;
 
 import org.springframework.data.annotation.Transient;
 
-@Entity
 public class Message {
 
 	private static final String DD_MM_YYYY_HH_MM = "dd-MM-yyyy HH:mm";
 
-	@Id
-	@GeneratedValue
-	private String id;
+	private Long id;
 	
 	private Long adId;
 	private Long userId;
@@ -28,7 +25,6 @@ public class Message {
 	
 	private String username;
 	
-	@Transient
 	private String timeSent;
 	
 	private Integer chatKey;
@@ -38,11 +34,11 @@ public class Message {
 	
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

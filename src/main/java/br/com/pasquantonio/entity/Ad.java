@@ -28,6 +28,9 @@ public class Ad {
 	@Enumerated()
 	private AdEnum type;
 	
+	private Long categoryId;
+	private String keyWords;
+	
 
 	public BigDecimal getPrice() {
 		return price;
@@ -84,6 +87,22 @@ public class Ad {
 
 	public void setSeller(String seller) {
 		this.seller = seller;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getKeyWords() {
+		return keyWords;
+	}
+
+	public void setKeyWords(String keyWords) {
+		this.keyWords = keyWords;
 	}
 
 
