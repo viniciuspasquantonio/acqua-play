@@ -1,11 +1,13 @@
 package br.com.pasquantonio.controller;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -25,6 +27,12 @@ public class CategoryController {
 	@ResponseStatus(HttpStatus.OK)
 	public Iterable<Category> findAll() {
 		return categoryRepository.findAll();
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST, consumes="application/json")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Category create(@RequestBody @Valid Category category) {
+		return categoryRepository.save(category);
 	}
 	
 	
