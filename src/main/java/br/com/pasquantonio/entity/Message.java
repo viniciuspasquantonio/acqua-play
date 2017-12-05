@@ -4,34 +4,30 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import org.springframework.data.annotation.Transient;
+import org.springframework.data.annotation.Id;
 
 public class Message {
 
 	private static final String DD_MM_YYYY_HH_MM = "dd-MM-yyyy HH:mm";
 
+	@Id
 	private Long id;
-	
-	private Long adId;
+
+	private String adId;
 	private Long userId;
 	private Long sellerId;
-	
+
 	private String text;
 	private Instant instant;
-	
+
 	private String username;
-	
+
 	private String timeSent;
-	
+
 	private Integer chatKey;
 
-	
 	Message() {
-	
+
 	}
 
 	public Long getId() {
@@ -42,11 +38,11 @@ public class Message {
 		this.id = id;
 	}
 
-	public Long getAdId() {
+	public String getAdId() {
 		return adId;
 	}
 
-	public void setAdId(Long adId) {
+	public void setAdId(String adId) {
 		this.adId = adId;
 	}
 
@@ -58,7 +54,6 @@ public class Message {
 		this.userId = userId;
 	}
 
-
 	public Instant getInstant() {
 		return instant;
 	}
@@ -66,7 +61,6 @@ public class Message {
 	public void setInstant(Instant instant) {
 		this.instant = instant;
 	}
-	
 
 	public Long getSellerId() {
 		return sellerId;
@@ -83,14 +77,11 @@ public class Message {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
-	
+
 	public String getTimeSent() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DD_MM_YYYY_HH_MM)
-	            .withZone( ZoneId.systemDefault() );
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DD_MM_YYYY_HH_MM).withZone(ZoneId.systemDefault());
 		return formatter.format(instant);
 	}
-
 
 	public Integer getChatKey() {
 		return chatKey;
@@ -133,9 +124,4 @@ public class Message {
 		return builder.toString();
 	}
 
-
-
-
-
-	
 }

@@ -1,23 +1,19 @@
 package br.com.pasquantonio.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document
 public class Category {
-
 	@Id
-	@GeneratedValue
-	private Integer id;
+	private String id;
 	private String name;
 	private String image;
 	
 	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {

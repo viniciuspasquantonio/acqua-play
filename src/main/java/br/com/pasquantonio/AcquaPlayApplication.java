@@ -44,11 +44,11 @@ public class AcquaPlayApplication {
 	}
 
 	/**
-	 * We return an istance of our CustomUserDetails.
+	 * We return an instance of our CustomUserDetails.
 	 * @param repository
 	 * @return
      */
 	private UserDetailsService userDetailsService(final UserRepository repository) {
-		return username -> new CustomUserDetails(repository.findByUsername(username));
+		return email -> new CustomUserDetails(repository.findByEmail(email));
 	}
 }

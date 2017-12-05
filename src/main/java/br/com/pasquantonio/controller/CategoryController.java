@@ -1,12 +1,9 @@
 package br.com.pasquantonio.controller;
 
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,7 +33,7 @@ public class CategoryController {
 	}
 	
 	
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})
-	public void handleNotFound() {}
+//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+//	@ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})
+//	public void handleNotFound() {}
 }

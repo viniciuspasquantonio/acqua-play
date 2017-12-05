@@ -3,33 +3,32 @@ package br.com.pasquantonio.entity;
 import java.math.BigDecimal;
 import java.util.Collection;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.TextIndexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class Ad {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private String id;
 	
 	private BigDecimal price;
+	@TextIndexed(weight=3)
 	private String title;
+	@TextIndexed
 	private String description;
-	private String seller;
+	private String sellerId;
 	
-	@ElementCollection
 	private Collection<String> images;
 	
-	@Enumerated()
 	private AdEnum type;
 	
-	private Long categoryId;
+	private String categoryId;
+	@TextIndexed(weight=2)
 	private String keyWords;
+
+	@TextIndexed(weight=2)
+	private String category;
 	
 
 	public BigDecimal getPrice() {
@@ -65,11 +64,11 @@ public class Ad {
 	}
 
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -81,21 +80,6 @@ public class Ad {
 		this.images = images;
 	}
 
-	public String getSeller() {
-		return seller;
-	}
-
-	public void setSeller(String seller) {
-		this.seller = seller;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
 
 	public String getKeyWords() {
 		return keyWords;
@@ -103,6 +87,30 @@ public class Ad {
 
 	public void setKeyWords(String keyWords) {
 		this.keyWords = keyWords;
+	}
+
+	public String getSellerId() {
+		return sellerId;
+	}
+
+	public void setSellerId(String sellerId) {
+		this.sellerId = sellerId;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 

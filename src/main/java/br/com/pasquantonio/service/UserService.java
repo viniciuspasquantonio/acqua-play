@@ -26,7 +26,7 @@ public class UserService  {
     }
     
     public User update(User user){
-    	User savedUser = userRepository.findByUsername(user.getUsername());
+    	User savedUser = userRepository.findByEmail(user.getEmail());
         return userRepository.save(user);
     }
     
@@ -34,8 +34,12 @@ public class UserService  {
         return userRepository.findOne(id);
     }
 
-	public User findByUsername(String username) {
-		return userRepository.findByUsername(username);
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+
+	public User findByUserId(Long userId) {
+		return userRepository.findOne(userId);
 	}
 
 }

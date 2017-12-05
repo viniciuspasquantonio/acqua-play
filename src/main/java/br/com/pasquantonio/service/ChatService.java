@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -86,7 +85,7 @@ public class ChatService  {
 				chat.setUser1(userRepository.findOne(entrySet.getKey().getSellerId()));
 				
 			}
-			Ad ad = adRepository.findOne(entrySet.getKey().getAdId().intValue());
+			Ad ad = adRepository.findOne(entrySet.getKey().getAdId());
 			chat.setAd(ad);
 			
 			chats.add(chat);

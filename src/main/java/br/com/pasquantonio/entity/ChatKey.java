@@ -2,7 +2,7 @@ package br.com.pasquantonio.entity;
 
 public class ChatKey{
 
-	private Long adId;
+	private String adId;
 	private Long userId;
 	private Long sellerId;
 	public ChatKey(Message message) {
@@ -10,10 +10,10 @@ public class ChatKey{
 		this.userId = message.getUserId();
 		this.sellerId = message.getSellerId();
 	}
-	public Long getAdId() {
+	public String getAdId() {
 		return adId;
 	}
-	public void setAdId(Long adId) {
+	public void setAdId(String adId) {
 		this.adId = adId;
 	}
 	public Long getUserId() {
